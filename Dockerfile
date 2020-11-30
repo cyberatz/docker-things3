@@ -1,10 +1,6 @@
 # -*-Dockerfile-*-
-FROM golang:alpine
-RUN apk add -X http://dl-cdn.alpinelinux.org/alpine/edge/community \
-     -X http://dl-cdn.alpinelinux.org/alpine/edge/main \
-    alpine-sdk gnupg xz curl-dev sqlite-dev binutils-gold \
-    autoconf automake ldc git python3 pip3
-RUN go get github.com/tianon/gosu
+FROM andrevs:python3
+RUN pip install -r requirements.txt
 RUN mkdir /usr/src && cd /usr/src/ && git clone https://github.com/AlexanderWillner/KanbanView.git --single-branch -b v2.6.3 && \
     cd KanbanView && git init && git switch -c v2.6.3
 
@@ -28,7 +24,7 @@ RUN cd /usr/src/KanbanView/ && \
     #make clean && \
     #make && \
     #make install
-    make run-server
+    make run-api
 
 #FROM alpine
 #ENTRYPOINT ["/entrypoint.sh"]
