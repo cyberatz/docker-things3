@@ -11,13 +11,13 @@ RUN mkdir /usr/src && cd /usr/src/ && git clone https://github.com/AlexanderWill
 COPY . /usr/src/KanbanView
 WORKDIR /usr/src/KanbanView
 #Path to database
-ENV THINGSDB
+ENV THINGSDB=/things
 #Tag for tasks you are waiting for
-ENV TAG_WAITING
+ENV TAG_WAITING=default
 #Tag for most important task
-ENV TAG_MIT
+ENV TAG_MIT=default
 EXPOSE 15000
-
+RUN mkdir -p /things
 RUN cd /usr/src/KanbanView/ && \
     #sed -i "s/git describe/git describe --always/g" Makefile.in && \
     #sed -i "s/d50ca740-c83f-4d1b-b616-12c519384f0c/7bdb6d8b-a3d9-4f3b-9767-efb4128939aa/g" src/onedrive.d && \
