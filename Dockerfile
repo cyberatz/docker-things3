@@ -12,6 +12,10 @@ ENTRYPOINT ["/entrypoint.sh"]
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
+# TODO
+#Path to database - mount '/Library/Group Containers/JLMPQHK86H.com.culturedcode.ThingsMac/Things Database.thingsdatabase/ on /things
+#ENV THINGSDB=/things/main.sqlite
+
 #Tag for tasks you are waiting for
 ENV TAG_WAITING=default
 
@@ -22,14 +26,6 @@ ENV TAG_MIT=default
 #Cleanup Tag
 #Eisenhower "A" Tag
 
-
-
-
-
-
-
-#Path to database - mount '/Library/Group Containers/JLMPQHK86H.com.culturedcode.ThingsMac/Things Database.thingsdatabase/ on /things
-#ENV THINGSDB=/things/main.sqlite
 #FILE_CONFIG = str(Path.home()) + '/.kanbanviewrc'
 #FILE_DB = '/Library/Group Containers/JLMPQHK86H.com.culturedcode.ThingsMac/Things Database.thingsdatabase/main.sqlite'
 
