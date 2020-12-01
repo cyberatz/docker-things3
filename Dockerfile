@@ -23,7 +23,6 @@ ENV TAG_WAITING=Waiting
 #Tag for most important task
 ENV TAG_MIT=MIT
 
-
 # TODO
 #Cleanup Tag
 #Eisenhower "A" Tag
