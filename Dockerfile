@@ -17,10 +17,10 @@ RUN chmod +x /entrypoint.sh
 #ENV THINGSDB=/things/main.sqlite
 
 #Tag for tasks you are waiting for
-ENV TAG_WAITING=default
+ENV TAG_WAITING=Waiting
 
 #Tag for most important task
-ENV TAG_MIT=default
+ENV TAG_MIT=MIT
 
 # TODO
 #Cleanup Tag
