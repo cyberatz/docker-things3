@@ -8,33 +8,35 @@ RUN mkdir -p /usr/src && cd /usr/src/ && git clone https://github.com/AlexanderW
 
 COPY . /usr/src/KanbanView
 WORKDIR /usr/src/KanbanView
-#Path to database
-ENV THINGSDB=/things
+#Path to database - mount '/Library/Group Containers/JLMPQHK86H.com.culturedcode.ThingsMac/Things Database.thingsdatabase/ on /things
+ENV THINGSDB=/things/main.sqlite
+#FILE_CONFIG = str(Path.home()) + '/.kanbanviewrc'
+#FILE_DB = '/Library/Group Containers/JLMPQHK86H.com.culturedcode.ThingsMac/Things Database.thingsdatabase/main.sqlite'
 #Tag for tasks you are waiting for
 ENV TAG_WAITING=default
 #Tag for most important task
 ENV TAG_MIT=default
 EXPOSE 15000
 RUN mkdir -p /things
-RUN cd /usr/src/KanbanView/ && \
-    #sed -i "s/git describe/git describe --always/g" Makefile.in && \
-    #sed -i "s/d50ca740-c83f-4d1b-b616-12c519384f0c/7bdb6d8b-a3d9-4f3b-9767-efb4128939aa/g" src/onedrive.d && \
-	  #sed -i "s/OneDrive Client for Linux/TeamFilePublicationAutomation/g" src/onedrive.d && \
-	  #sed -i "s/abraunegg/NTT/g" src/onedrive.d && \
-    #autoreconf -fiv && \
-    #./configure && \
-    #make clean && \
-    #make && \
-    #make install
-    make run-api
+#RUN cd /usr/src/KanbanView/ && \
+#    #sed -i "s/git describe/git describe --always/g" Makefile.in && \
+#    #sed -i "s/d50ca740-c83f-4d1b-b616-12c519384f0c/7bdb6d8b-a3d9-4f3b-9767-efb4128939aa/g" src/onedrive.d && \
+#	  #sed -i "s/OneDrive Client for Linux/TeamFilePublicationAutomation/g" src/onedrive.d && \
+#	  #sed -i "s/abraunegg/NTT/g" src/onedrive.d && \
+#    #autoreconf -fiv && \
+#    #./configure && \
+#    #make clean && \
+#    #make && \
+#    #make install
+#    make run-api
 
 #FROM alpine
-#ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 #RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/community \
 #     -X http://dl-cdn.alpinelinux.org/alpine/edge/main \
 #    bash libcurl libgcc shadow sqlite-libs ldc-runtime curl python3 && \
 #    mkdir -p /things
-#COPY entrypoint.sh /
+COPY entrypoint.sh /
 
 
 
