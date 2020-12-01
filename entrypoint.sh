@@ -7,5 +7,6 @@ then
 else
   echo "Starting with DB file: $THINGSDB"
 fi
+sed -i "/thingsdb/c\thingsdb = $THINGSDB" /root/.kanbanviewrc
 
 cd /usr/src/KanbanView/ && make run-api
