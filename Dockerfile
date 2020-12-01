@@ -3,7 +3,8 @@ FROM andrevs/debian-python3:latest
 COPY requirements.txt /
 RUN pip3 install -r /requirements.txt
 RUN mkdir -p /usr/src && cd /usr/src/ && git clone https://github.com/AlexanderWillner/KanbanView.git --single-branch -b v2.6.3 && \
-    cd KanbanView #&& git init && git switch -c v2.6.3
+    cd KanbanView 
+    #&& git init && git switch -c v2.6.3
 
 COPY . /usr/src/KanbanView
 WORKDIR /usr/src/KanbanView
