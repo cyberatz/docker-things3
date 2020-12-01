@@ -26,3 +26,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASS }}
           repository: andrevs/things3-api
           tags: latest
+      - name: pushover-actions
+        uses: clivern/pushover-actions@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUSHOVER_TOKEN: ${{ secrets.PUSHOVER_TOKEN }}
+          PUSHOVER_USER: ${{ secrets.PUSHOVER_USER }}
