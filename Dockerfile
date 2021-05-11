@@ -2,7 +2,8 @@
 FROM andrevs/debian-python3:latest
 COPY requirements.txt /
 RUN pip3 install -r /requirements.txt
-RUN mkdir -p /usr/src && cd /usr/src/ && git clone https://github.com/AlexanderWillner/KanbanView.git --single-branch -b v2.6.3
+#RUN mkdir -p /usr/src && cd /usr/src/ && git clone https://github.com/AlexanderWillner/KanbanView.git --single-branch -b v2.6.3
+RUN mkdir -p /usr/src && cd /usr/src/ && git clone https://github.com/AlexanderWillner/KanbanView.git
 
 COPY kanban.css kanban.js /usr/src/KanbanView/resources/
 WORKDIR /usr/src/KanbanView
