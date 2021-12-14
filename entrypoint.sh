@@ -16,7 +16,7 @@ else
 fi
 #sed -i "/thingsdb/c\thingsdb = $THINGSDB" /root/.kanbanviewrc
 
-cd /usr/src/KanbanView/ && make run-api &
+cd /usr/src/KanbanView/ && make run-api #&
 #sleep 30
 #pkill python3
 
